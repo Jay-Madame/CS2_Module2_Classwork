@@ -4,35 +4,6 @@
 void produceCrayons();
 int draw(std::string color, int amtLeft, int amtToDraw);
 
-class Rectangle
-{
-private:
-    double width, length;
-
-public:
-    void setWidth(double w);
-    void setLength(double l);
-
-    double getWidth() const;
-    double getLength() const;
-    double getArea() const;
-};
-
-class Crayon
-{
-private:
-    std::string color;
-    int length;
-
-public:
-    void draw(int lineLength);
-    Crayon blend(Crayon otherCrayon);
-    void setColor(std::string c);
-    void setLength(int l);
-    std::string getColor() const;
-    int getLength() const;
-};
-
 class Date
 {
 private:
@@ -53,41 +24,36 @@ class Assignment
 
 private:
     std::string name;
-    int pointsPossible, pointsEarned, dueYear, dueMonth, dueDay;
+    int pointsPossible, pointsEarned, dueDate;
 
 public:
     void setName(std::string n);
     void setPointsPossible(int p);
     void setPointsEarned(int e);
-    void setDueYear(int y);
-    void setDueMonth(int m);
-    void setDueDay(int d);
+    void setDueDate(Date dd);
     std::string getName() const;
     int getPointsPossible() const;
     int getPointsEarned() const;
-    int getDueYear() const;
-    int getDueMonth() const;
-    int getDueDay() const;
+    Date getDueDate() const;
 };
 
 class Student
 {
     Assignment assignments;
+
 private:
-    std::string firstName, emailAddress, address;
-    int idNumber, phoneNumber;
+    std::string firstName, emailAddress, address, idNumber;
+    int phoneNumber;
     std::vector<Assignment> Assignments;
 
-    public:
-    void setFirstName(std::string f);
-    void setLastName(std::string l);
+public:
+    void setFirstName(Assignment fn);
+    void setLastName(Assignment ln);
     void setEmailAddress(std::string email);
     void setAddress(std::string address);
-    void setIDNumber(int id);
+    void setIDNumber(std::string id);
     void setPhoneNumber(int pnum);
     void setAssignments(Assignment);
-    
-
 };
 
 int main()
@@ -101,78 +67,71 @@ int main()
     boxOfCrayons;
 }
 
-void produceCrayons()
+// Date
+void Date::setYear(int y)
 {
-    std::string crayon1 = "red";
-    std::string crayon2 = "orange";
-    std::string crayon3 = "yellow";
-    std::string crayon4 = "green";
-    std::string crayon5 = "blue";
-    std::string crayon6 = "indigo";
-    std::string crayon7 = "purple";
-    std::string crayon8 = "black";
-
-    int crayon1Length = 100;
-    int crayon2Length = 100;
-    int crayon3Length = 100;
-    int crayon4Length = 100;
-    int crayon5Length = 100;
-    int crayon6Length = 100;
-    int crayon7Length = 100;
-    int crayon8Length = 100;
 }
-
-int draw(std::string color, int amtLeft, int amtToDraw)
+void Date::setMonth(int m)
 {
-    // blah blah blah
-
-    return amtToDraw;
+}
+void Date::setDay(int d)
+{
+}
+int Date::getYear() const
+{
+}
+int Date::getMonth() const
+{
+}
+int Date::getDay() const
+{
 }
 
-void Rectangle::setWidth(double w)
+// Assignment
+void Assignment::setName(std::string n)
 {
-    width = w;
 }
-void Rectangle::setLength(double l)
+void Assignment::setPointsPossible(int p)
 {
-    length = l;
+}
+void Assignment::setPointsEarned(int e)
+{
+}
+void Assignment::setDueDate(Date dd)
+{
+}
+std::string Assignment::getName() const
+{
+}
+int Assignment::getPointsPossible() const
+{
+}
+int Assignment::getPointsEarned() const
+{
+}
+Date Assignment::getDueDate() const
+{
 }
 
-double Rectangle::getWidth() const
-{
-    return width;
-}
-double Rectangle::getLength() const
-{
-    return length;
-}
-double Rectangle::getArea() const
-{
-    return (getWidth() * getLength());
-}
-void Crayon::draw(int lineLength)
-{
-    std::cout << "A line of " << color << " extending " << lineLength << " feet on the wall" << std::endl;
-    length = length - lineLength;
-}
-Crayon Crayon::blend(Crayon otherCrayon)
-{
-    Crayon c;
-    c.setColor(color + otherCrayon.getColor());
-    c.setLength(length + otherCrayon.getLength());
-    return c;
-}
-void Crayon::setColor(std::string c)
-{
-    color = c;
-}
-void Crayon::setLength(int l)
-{
-    length = l;
-}
-std::string Crayon::getColor() const
+// Student
+void Student::setFirstName(Assignment fn)
 {
 }
-int Crayon::getLength() const
+void Student::setLastName(Assignment ln)
+{
+}
+void Student::setEmailAddress(std::string email)
+{
+}
+void Student::setAddress(std::string address)
+{
+}
+void Student::setIDNumber(std::string id)
+{
+}
+void Student::setPhoneNumber(int pnum)
+{
+}
+void Student::setAssignments(Assignment)
 {
 }
